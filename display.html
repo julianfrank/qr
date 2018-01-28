@@ -12,9 +12,12 @@
 
 <body>
     <h1>QR Display</h1>
-    <div id="qr1" style="width:128px; height:128px; padding:100px;">qr1</div>
-    <div id="qr2" style="width:128px; height:128px; padding:100px;">qr2</div>
-
+    <div style="display:flex;">
+        <div id="qr1" style="max-width:44%;padding:44px;display:inline;">qr1</div>
+        <img src="hiro.png" style="max-width:44%;padding:44px;display:inline;">hiro</img>
+        <div id="qr2" style="max-width:44%;padding:44px;display:inline;">qr2</div>
+        <img src="kanji.png" style="max-width:44%;padding:44px;display:inline;">kanji</img>
+    </div>
     <script type="text/javascript">
         var qr1 = new QRCode("qr1", { text: "qr1", correctLevel: QRCode.CorrectLevel.H, colorDark: "#000000", colorLight: "#ffffff", }),
             qr2 = new QRCode("qr2", { text: "qr2", correctLevel: QRCode.CorrectLevel.H, colorDark: "#000000", colorLight: "#ffffff", })
