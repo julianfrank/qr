@@ -6,25 +6,37 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>AR Reader</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+    <link rel="stylesheet" type="text/css" media="screen" />
     <script src="https://aframe.io/releases/0.7.1/aframe.min.js"></script>
     <script src="https://jeromeetienne.github.io/AR.js/aframe/build/aframe-ar.js"></script>
 </head>
 
 <body style="margin : 0px; overflow: hidden; font-family: Monospace;">
     <div style="position: fixed; top: 10px; width:100%; text-align: center; z-index: 1;">AR Reader</div>
-    
-    <a-scene stats embedded arjs='sourceType: webcam; detectionMode: mono; maxDetectionRate: 1;'>
-  
-          <!-- define the object which gonna be put on this marker  -->
-          <a-box position='0 0.5 0' material='opacity: 0.5; side: double'>
-              <a-torus-knot radius='0.26' radius-tubular='0.05'>
-                  <a-animation attribute="rotation" to="360 0 0" dur="3000" easing='linear' repeat="indefinite"></a-animation>
-              </a-torus-knot>
-          </a-box>
-  
-          <a-marker-camera preset='hiro'></a-marker-camera>
-      </a-scene>
+
+    <!--<a-scene stats embedded arjs='sourceType: webcam; detectionMode: mono; '>-->
+    <a-scene embedded arjs>
+
+        <a-marker preset="hiro">
+            <a-entity position="0 0 0" id="txtTest1" geometry="primitive: plane; width: 2; height: auto;" material="color: red;" text="value: This text will be 2 units wide."></a-entity>
+            <a-box position="0 0 0" material="opacity: 0.5; side: double;color:blue;"> </a-box>
+        </a-marker>
+
+
+    </a-scene>
+
+	<!--<a-entity camera></a-entity>-->
+
+    <script>
+        setInterval(() => {
+            var s = new Date().getSeconds()
+            var x1 = document.getElementById("txtTest1")//, x2 = document.getElementById("txtTest2")
+            x1.setAttribute("text", "value:" + "x1: " + s + ";")
+            //x2.setAttribute("text", "value:" + "x2: " + s + ";")
+            //console.log(s)
+        }, 1000)
+    </script>
+
 </body>
 
 </html>
